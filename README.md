@@ -277,3 +277,7 @@ Provide the following code (Add your token in the file):
 
 }
 ```
+
+
+Created a bash script to automate the process of generating a token from Terraform Cloud. 
+The file created is located in: [bin/generate_tfrc_creds](bin/generate_tfrc_creds)
