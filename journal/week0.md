@@ -27,7 +27,9 @@
     + [Terraform State Files](#terraform-state-files)
   * [Terraform Directory](#terraform-directory)
 - [Issues with Terraform Cloud Login and Gitpod Workspaces](#issues-with-terraform-cloud-login-and-gitpod-workspaces)
-## Semantic Versioning
+
+
+## Semantic Versioning 🧙‍♂️
 
 This project will utilize semantic versioning for its tagging.
 [semver.org/]https://semver.org/ 
