@@ -8,13 +8,14 @@
     + [Shebang Considerations](#shebang-considerations)
 - [Execution Considerations](#execution-considerations)
     + [Linux Permissions Considerations](#linux-permissions-considerations)
-  * [Github Lifecycle (Before, Init, Command)](#github-lifecycle--before--init--command-)
-  * [Working with Env Vars](#working-with-env-vars)
+- [Gitpod Lifecycle - Before, Init, Command](#gitpod-lifecycle---before--init--command)
+- [Working with Env Vars](#working-with-env-vars)
+  * [env command](#env-command)
   * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
-- [Printing Vars](#printing-vars)
+  * [Printing Vars](#printing-vars)
   * [Scoping of Env Vars](#scoping-of-env-vars)
-    + [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
-  * [AWS CLI Installation](#aws-cli-installation)
+  * [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+- [AWS CLI Installation](#aws-cli-installation)
 - [Terraform Basics](#terraform-basics)
   * [Terraform Registry](#terraform-registry)
   * [Terraform Console](#terraform-console)
@@ -26,9 +27,7 @@
     + [Terraform State Files](#terraform-state-files)
   * [Terraform Directory](#terraform-directory)
 - [Issues with Terraform Cloud Login and Gitpod Workspaces](#issues-with-terraform-cloud-login-and-gitpod-workspaces)
-
-## Semantic Versioning :mage:
-
+## Semantic Versioning
 
 This project will utilize semantic versioning for its tagging.
 [semver.org/]https://semver.org/ 
@@ -125,7 +124,7 @@ chmod 744 ./bin/install_terraform_cli
 https://en.wikipedia.org/wiki/Chmod
 
 
-### Github Lifecycle (Before, Init, Command)
+## Gitpod Lifecycle - Before, Init, Command
 
 We need to be careful when using the Init because it will not return if we restart an existing workspace/
 
@@ -135,7 +134,9 @@ https://www.gitpod.io/docs/configure/workspaces/tasks
 
 
 
-### Working with Env Vars 
+## Working with Env Vars 
+
+### env command 
 
 We can list out all Environment Variables using the `env` command. 
 
@@ -163,7 +164,7 @@ HELLO='world'
 echo $HELLO
 ```
 
-## Printing Vars
+### Printing Vars
 
 We can print an env var using echo eg/ `echo $HELLO`
 
@@ -174,7 +175,7 @@ When you open new bash temrinals in VScode, it will not be aware of env vars tha
 If you want Env Vars to persist across all future bash terminals, you need to set env vars in your bash profile. eg. `.bash_profile`
 
 
-#### Persisting Env Vars in Gitpod 
+### Persisting Env Vars in Gitpod 
 
 We can persist  env vars in gitpod by storing them in gitpods secrets storage.
 
@@ -188,7 +189,7 @@ You can also set env vars in the `.gitpod.yml` file but this can only contain no
 
 
 
-### AWS CLI Installation 
+## AWS CLI Installation 
 
 AWS CLI is installed for this project via the bash script [`./bin/install_aws_cli`] (./bin/install_aws_cli)
 
