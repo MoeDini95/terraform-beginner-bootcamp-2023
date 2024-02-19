@@ -38,4 +38,3 @@ variable "bucket_name" {
    # error_message = "The specified file path for error.html does not exist."
   #}
 #}
-/*
