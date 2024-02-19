@@ -20,7 +20,7 @@ variable "bucket_name" {
   }
 }
 
-/*
+
 variable "index_html_filepath" {
   description = "Filepath to the index.html file"
   type = string
@@ -38,4 +38,3 @@ variable "error_html_filepath" {
     error_message = "The specified file path for error.html does not exist."
   }
 }
-*/
