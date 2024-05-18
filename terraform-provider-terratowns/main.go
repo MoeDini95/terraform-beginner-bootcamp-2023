@@ -14,7 +14,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-
 )
 // func main(): Defines the main function, the entry point of the app. 
 // When you run the program, it starts executing from this function.
@@ -39,7 +38,6 @@ func Provider() *schema.Provider {
 	p = &schema.Provider{
 		ResourcesMap:  map[string]*schema.Resource{
 			"terratowns_home": Resource(),
-
 		},
 		DataSourcesMap:  map[string]*schema.Resource{
 
@@ -69,7 +67,6 @@ func Provider() *schema.Provider {
 }
 
 func validateUUID(v interface{}, k string) (ws []string, errors []error) {
-
 	log.Print("validateUUID:start")
 	value := v.(string)
 	if _, err := uuid.Parse(value); err != nil {
@@ -90,7 +87,7 @@ func providerConfigure(p *schema.Provider) schema.ConfigureContextFunc {
 		log.Print("providerConfigure:end")
 		return &config, nil
 	}
-
+}
 
 func Resource() *schema.Resource {
 	log.Print("Resource:start")
@@ -99,7 +96,6 @@ func Resource() *schema.Resource {
 		ReadContext: resourceHouseRead,
 		UpdateContext: resourceHouseUpdate,
 		DeleteContext: resourceHouseDelete,
-
 		Schema: map[string]*schema.Schema{
 			"name": {
 				Type: schema.TypeString,
@@ -127,12 +123,12 @@ func Resource() *schema.Resource {
 				Description: "The content version of the home",
 			},
 		},
-
+	}
+	log.Print("Resource:start")
 	return resource
 }
 
 func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-
 	log.Print("resourceHouseCreate:start")
 	var diags diag.Diagnostics
 
@@ -192,7 +188,6 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 }
 
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
 
@@ -238,7 +233,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 	}
 
 	log.Print("resourceHouseRead:end")
-	
+
 	return diags
 }
 
@@ -331,4 +326,3 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
-
