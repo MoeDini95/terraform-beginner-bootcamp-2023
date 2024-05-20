@@ -1,7 +1,11 @@
 terratowns_endpoint="https://terratowns.cloud/api"
-bucket_name="d9y0ggzwwfdyl3d61nsrsiafx5pnns5z"
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
-content_version=1
+castle = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/castle"
+    content_version = 1
+}
+canada = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/canada"
+    content_version = 1
+}
+
 

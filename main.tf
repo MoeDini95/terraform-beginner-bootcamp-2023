@@ -7,13 +7,22 @@ terraform  {
   }
 
 
-# cloud {
-#    organization = "MoeDini95"
+#backend "remote" {
+  #  hostname = "app.terraform.io"
+  #  organization = "ExamPro"
 
-#    workspaces {
-#     name = "terra-house-95"
-#    }
-#  }
+  #  workspaces {
+  #    name = "terra-house-95"
+  #  }
+  #}
+
+ cloud {
+    organization = "MoeDini95"
+
+    workspaces {
+    name = "terra-house-95"
+    }
+  }
 
 
 
@@ -33,14 +42,12 @@ provider "terratowns" {
 
 
 
-module "terrahouse_aws" {
+module "home_castle" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.teacherseat_user_uuid
+  public_path = var.castle.public_path
   bucket_name = var.bucket_name
-  error_html_filepath = var.error_html_filepath
-  index_html_filepath = var.index_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  content_version = var.castle_content_version
 }
 
 
@@ -50,7 +57,26 @@ resource "terratowns_home" "home" {
 Castlevania is an animated show that aired on Netflix from 2017 to 2021. 
 It is a show about a Vampire hunter who has a main goal of eliminating Dracula and his army.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_castle.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.castle_content_version
+}
+
+module "home_canada" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.canada.public_path
+  bucket_name = var.bucket_name
+  content_version = var.canada_content_version
+}
+
+
+resource "terratowns_home" "home" {
+  name = "Views of Canada"
+  description = <<DESCRIPTION
+Being in Canada has a lot of advantages and one of the major advantages are its beautiful views.
+DESCRIPTION
+  domain_name = module.home_canada.domain_name
+  town = "missingo"
+  content_version = var.canada_content_version
 }
